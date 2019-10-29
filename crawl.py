@@ -45,7 +45,7 @@ def convert_to_bs4(doc: TextIO) -> BeautifulSoup:
     return soup
 
 
-def gen_xpath(origin_file: BeautifulSoup, sample_file: BeautifulSoup, tag_id: Optional[str] = None) -> str:
+def gen_xpath(origin_file: TextIO, sample_file: TextIO, tag_id: Optional[str] = None) -> str:
     origin_file = convert_to_bs4(origin_file)
     sample_file = convert_to_bs4(sample_file)
     feats = get_features(origin_file, tag_id)
