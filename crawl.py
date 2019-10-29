@@ -39,18 +39,19 @@ def count_max_matches(doc: BeautifulSoup, features: dict) -> Tag:
     return result
 
 
-def convert_to_bs4(doc: TextIO):
+def convert_to_bs4(doc: TextIO) -> BeautifulSoup:
     file = open(doc, 'r')
     soup = BeautifulSoup(file.read(), features='html.parser', multi_valued_attributes=None)
     return soup
 
 
-def gen_xpath(origin_file: BeautifulSoup, sample_file: BeautifulSoup, tag_id: Optional[str] = None):
+def gen_xpath(origin_file: BeautifulSoup, sample_file: BeautifulSoup, tag_id: Optional[str] = None) -> str:
     origin_file = convert_to_bs4(origin_file)
     sample_file = convert_to_bs4(sample_file)
     feats = get_features(origin_file, tag_id)
     element = count_max_matches(sample_file, feats)
-    return xpath_soup(element)
+    xpath = xpath_soup(element)
+    return xpath
 
 
 if __name__ == '__main__':
