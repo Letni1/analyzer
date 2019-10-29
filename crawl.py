@@ -57,7 +57,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('input_origin_file_path')
     parser.add_argument('input_other_sample_file_path')
-    parser.add_argument('-id', help='optional id',
+    parser.add_argument('--id', help='optional id',
                             default='make-everything-ok-button')
     args = parser.parse_args()
 
